@@ -218,7 +218,7 @@ ${message}
           viewport={{ once: true }}
           className="text-center text-3xl md:text-4xl font-bold mb-14"
         >
-          How It <span className="text-orange-500">Works</span>
+          How We <span className="text-orange-500">Operate</span>
         </motion.h2>
 
         <div className="mx-auto max-w-6xl grid gap-10 md:grid-cols-3">
