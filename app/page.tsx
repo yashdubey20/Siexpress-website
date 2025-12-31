@@ -266,7 +266,7 @@ ${message}
         </div>
       </section>
 
-{/* ================= WHY SIEXPRESS ================= */}
+{/* ================ WHY SIEXPRESS ================ */}
 <section className="py-28 px-10">
   <motion.h2
     initial={{ opacity: 0, y: 24 }}
