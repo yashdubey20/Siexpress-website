@@ -22,6 +22,18 @@ function TruckModel() {
   );
 }
 
+const partners = [
+  { name: "Reliance General Insurance", logo: "/logos/reliance.png" },
+  { name: "Hindustan Unilever Ltd.", logo: "/logos/hul.jpg" },
+  { name: "Saurashtra Cement Ltd.", logo: "/logos/saurashtra-cement.png" },
+  { name: "Marsh McLennan Insurance", logo: "/logos/marsh-mclennan-logo.png" },
+  { name: "Prudent Insurance", logo: "/logos/prudent-logo.png" },
+  // { name: "Pelorus Technology Pvt Ltd.", logo: "/logos/pelorus.png" },
+  { name: "Petronas Lubricants", logo: "/logos/Petronas-Logo.png" },
+  { name: "Orchid Hotel, Ira & Kamat", logo: "/logos/orchid-hotel.png" },
+];
+
+
 /* ===================== PAGE ===================== */
 export default function Home() {
   const [dark, setDark] = useState(true);
@@ -68,10 +80,10 @@ ${message}
   };
 
   return (
-    
+
     <main className="min-h-screen bg-white text-slate-900 dark:bg-[#020617] dark:text-white transition-colors duration-300 overflow-x-hidden">
 
-    
+
 
       {/* ================= HERO ================= */}
       <section id="top" className="relative min-h-screen flex items-center px-6 md:px-24">
@@ -150,105 +162,216 @@ ${message}
         </div>
       </section>
 
-      {/* ================= HOW IT WORKS ================= */}
-      <section
-        id="learn-more"
-        className="py-28 px-10 bg-slate-100 dark:bg-slate-900"
-      >
+      {/* ================= ABOUT US ================= */}
+      <section className="py-28 px-6 md:px-10 bg-white dark:bg-[#020617]">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center text-4xl font-bold mb-16"
+        >
+          About <span className="text-orange-500">S I Express</span>
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-4xl text-lg leading-relaxed text-slate-600 dark:text-gray-300"
+        >
+          <p className="mb-6">
+            Founded in Mumbai in <strong>1998</strong>, <strong>S I Express</strong> is a
+            well-established courier and cargo service provider with over two decades
+            of experience in the logistics industry. We have built a strong reputation
+            for reliability, operational efficiency, and customer-focused service.
+          </p>
+
+          <p className="mb-6">
+            We specialize in <strong>surface transportation, air freight, and cargo
+              movement</strong>, with our core strength and highest expertise in
+            <strong> surface cargo logistics</strong>. Our services are designed to
+            handle consignments of any weight and volume, ensuring safe, reliable, and
+            cost-effective delivery across locations.
+          </p>
+
+          <p>
+            Supported by a robust operational network, disciplined processes, and an
+            experienced team, we ensure timely dispatches and dependable transit times.
+            At S I Express, we deliver practical, scalable logistics solutions tailored
+            to the evolving needs of our clients.
+          </p>
+        </motion.div>
+      </section>
+
+
+      {/* ================= HOW IT WORKS ================= */}
+      <section
+        id="learn-more"
+        className="py-24 md:py-28 px-6 md:px-10 bg-slate-100 dark:bg-slate-900"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-center text-3xl md:text-4xl font-bold mb-14"
         >
           How It <span className="text-orange-500">Works</span>
         </motion.h2>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.2,
-              },
-            },
-          }}
-          className="mx-auto max-w-6xl grid gap-12 md:grid-cols-3"
-        >
-          {["Pickup", "Transit", "Delivery"].map((step) => (
-            <motion.div
-              key={step}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              whileHover={{ y: -10 }}
-              className="rounded-2xl bg-white dark:bg-white/5 p-10 text-center shadow-sm dark:shadow-none"
-            >
-              <div className="mb-4 text-4xl">🚚</div>
-              <h3 className="text-2xl font-semibold">{step}</h3>
-              <p className="mt-3 text-slate-600 dark:text-gray-400">
-                Seamless and secure {step.toLowerCase()}.
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-
-      {/* ================= WHY SIEXPRESS ================= */}
-      <section className="py-28 px-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center text-4xl font-bold mb-16"
-        >
-          Why <span className="text-orange-500">Siexpress</span>
-        </motion.h2>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.2 },
-            },
-          }}
-          className="mx-auto max-w-6xl grid gap-12 md:grid-cols-3"
-        >
+        <div className="mx-auto max-w-6xl grid gap-10 md:grid-cols-3">
           {[
-            { title: "Super Fast", icon: "⚡" },
-            { title: "Reliable", icon: "📦" },
-            { title: "Live Tracking", icon: "📍" },
-          ].map((item) => (
+            {
+              title: "Pickup",
+              desc: "Scheduled pickup from your location with proper handling.",
+              icon: "📦",
+            },
+            {
+              title: "Transit",
+              desc: "Secure and efficient movement through our logistics network.",
+              icon: "🚚",
+            },
+            {
+              title: "Delivery",
+              desc: "On-time delivery with full visibility and confirmation.",
+              icon: "📍",
+            },
+          ].map((item, i) => (
             <motion.div
               key={item.title}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.35,
+                delay: i * 0.1,
+                ease: "easeOut",
               }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              whileHover={{ y: -10, scale: 1.03 }}
-              className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-10 text-center shadow-sm"
+              viewport={{ once: true, margin: "-80px" }}
+              whileHover={{ y: -6 }}
+              className="rounded-2xl bg-white dark:bg-white/5 p-8 md:p-10 text-center shadow-sm dark:shadow-none"
             >
               <div className="mb-4 text-4xl">{item.icon}</div>
-              <h3 className="text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-3 text-slate-600 dark:text-gray-400">
-                Built for modern, dependable logistics operations.
+
+              <h3 className="text-xl md:text-2xl font-semibold">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-slate-600 dark:text-gray-400 text-base md:text-lg">
+                {item.desc}
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
+
+{/* ================= WHY SIEXPRESS ================= */}
+<section className="py-28 px-10">
+  <motion.h2
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="text-center text-4xl font-bold mb-16"
+  >
+    Why <span className="text-orange-500">Siexpress</span>
+  </motion.h2>
+
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      hidden: {},
+      visible: {
+        transition: { staggerChildren: 0.15 },
+      },
+    }}
+    className="mx-auto max-w-6xl grid gap-12 md:grid-cols-3"
+  >
+    {[
+      {
+        title: "Super Fast",
+        icon: "⚡",
+        desc: "Optimized routing and rapid dispatch ensure time-critical deliveries never slow you down.",
+      },
+      {
+        title: "Reliable",
+        icon: "📦",
+        desc: "Every shipment is managed with accountability, precision, and consistent service standards.",
+      },
+      {
+        title: "Live Tracking",
+        icon: "📍",
+        desc: "Real-time shipment visibility keeps you informed and in control at every stage.",
+      },
+    ].map((item) => (
+      <motion.div
+        key={item.title}
+        variants={{
+          hidden: { opacity: 0, y: 32 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        whileHover={{ y: -6 }}
+        className="
+          rounded-2xl 
+          border border-slate-200 dark:border-white/10 
+          bg-white dark:bg-white/5 
+          p-10 text-center 
+          shadow-sm dark:shadow-none
+        "
+      >
+        <div className="mb-6 text-4xl">{item.icon}</div>
+
+        <h3 className="text-2xl font-semibold mb-3">
+          {item.title}
+        </h3>
+
+        <p className="text-slate-600 dark:text-gray-400 leading-relaxed">
+          {item.desc}
+        </p>
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+
+
+{/* ================= OUR PARTNERS ================= */}
+<section className="py-24 bg-white dark:bg-[#020617] overflow-hidden">
+  <div className="text-center mb-14 px-6">
+    <h2 className="text-4xl font-bold">
+      Our <span className="text-orange-500">Partners</span>
+    </h2>
+    <p className="mt-4 text-slate-600 dark:text-gray-400">
+      Trusted by leading brands and organizations across industries.
+    </p>
+  </div>
+
+  {/* MASK */}
+  <div className="relative w-full overflow-hidden">
+    <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white dark:from-[#020617] to-transparent z-10" />
+    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white dark:from-[#020617] to-transparent z-10" />
+
+    {/* TRACK */}
+    <div className="partner-marquee">
+      <div className="partner-track">
+        {[...partners, ...partners].map((partner, index) => (
+          <div className="partner-item" key={index}>
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              className="partner-logo"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* ================= CONTACT ================= */}
       <section
@@ -308,8 +431,62 @@ ${message}
         </motion.form>
       </section>
 
+      {/* ================= LOCATION / MAP ================= */}
+      <section className="py-28 px-6 md:px-10 bg-white dark:bg-[#020617]">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center text-4xl font-bold mb-16"
+        >
+          Our <span className="text-orange-500">Location</span>
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 shadow-sm"
+        >
+          {/* Google Maps Embed */}
+          <iframe
+            title="S I Express Location"
+            src="https://www.google.com/maps?q=Shop%20No%2C%20Bhuta%20Compound%2C%2002%2C%20Mogra%20Ln%2C%20near%20New%20Apollo%20Estate%2C%20Mogra%20Village%2C%20Andheri%20East%2C%20Mumbai%20400069&output=embed"
+            className="w-full h-[300px] md:h-[420px] border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </motion.div>
+
+        {/* Address + CTA */}
+        <div className="mt-10 text-center text-slate-600 dark:text-gray-400">
+          <p className="font-semibold text-slate-800 dark:text-white text-lg">
+            S I Express - info@siexpress.co.in
+          </p>
+
+          <p className="mt-2 leading-relaxed">
+            Shop No, Bhuta Compound, 02, Mogra Ln,<br />
+            Near New Apollo Estate, Mogra Village,<br />
+            Andheri East, Mumbai – 400069
+          </p>
+
+          {/* Open in Google Maps */}
+          <a
+            href="https://www.google.com/maps?q=Shop+No,+Bhuta+Compound,+02,+Mogra+Ln,+Andheri+East,+Mumbai+400069"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 text-orange-500 font-semibold hover:underline"
+          >
+            Open in Google Maps →
+          </a>
+        </div>
+      </section>
+
+
       <footer className="py-12 text-center text-slate-500">
-        © 2025 Siexpress. All rights reserved.
+        © 2026 Siexpress. All rights reserved.
       </footer>
     </main>
   );
