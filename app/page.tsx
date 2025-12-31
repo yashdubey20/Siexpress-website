@@ -493,3 +493,5 @@ ${message}
 }
 
 useGLTF.preload("/models/Truck.glb");
+
+// Checking
