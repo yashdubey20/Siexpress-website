@@ -24,7 +24,7 @@ function TruckModel() {
 
 const partners = [
   { name: "Reliance General Insurance", logo: "/logos/reliance.png" },
-  { name: "Hindustan Unilever Ltd.", logo: "/logos/hul.jpg" },
+  { name: "Hindustan Unilever Ltd.", logo: "/logos/images.png" },
   { name: "Saurashtra Cement Ltd.", logo: "/logos/saurashtra-cement.png" },
   { name: "Marsh McLennan Insurance", logo: "/logos/marsh-mclennan-logo.png" },
   { name: "Prudent Insurance", logo: "/logos/prudent-logo.png" },
